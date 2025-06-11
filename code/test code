@@ -1,0 +1,12 @@
+void setup() {
+  Serial.begin(9600); // Serial Monitor via USB
+  Serial.println("NodeMCU is ready to receive RS-232 data...");
+}
+
+void loop() {
+  if (Serial.available()) {
+    String data = Serial.readStringUntil('\n');  // Read incoming line
+    Serial.print("Received from RS-232: ");
+    Serial.println(data);
+  }
+}
